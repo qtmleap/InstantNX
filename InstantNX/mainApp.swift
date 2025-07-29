@@ -22,11 +22,6 @@ struct mainApp: App {
                 .environmentObject(NXClient())
         }
     }
-
-    // MARK: Private
-
-//    @StateObject private var config: NSConfig = .default
-//    @StateObject private var helper: NXClient = .default
 }
 
 // MARK: - AppDelegate

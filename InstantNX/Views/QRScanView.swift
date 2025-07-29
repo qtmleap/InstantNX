@@ -1,19 +1,17 @@
 //
-//  QRView.swift
+//  QRScanView.swift
 //  InstantNX
 //
-//  Created by devonly on 2024/10/13.
-//  Copyright © 2024 Magi, Corporation. All rights reserved.
+//  Created by devonly on 2025/07/29.
+//  Copyright © 2025 Magi, Corporation. All rights reserved.
 //
 
 import CodeScanner
-import Foundation
-import NetworkExtension
 import SwiftUI
 
-struct QRView: View {
+struct QRScanView: View {
     @EnvironmentObject private var client: NXClient
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, shouldVibrateOnSuccess: true, isTorchOn: false, videoCaptureDevice: .zoomedCameraForQRCode(), completion: { result in
@@ -24,11 +22,24 @@ struct QRView: View {
                     // 成功したらこんな感じのコードが返ってくる
                     print("Scanned code: \(code.string)")
                     Task(priority: .background, operation: {
-                        try await client.connect(code)
+                        do {
+                            defer {
+                                dismiss()
+                            }
+                            try await client.connect(code)
+                            try await client.disconnect()
+                        } catch {
+                            print("Connection failed: \(error)")
+                        }
                     })
                 case let .failure(error):
                     print(error)
             }
+        })
+        .onDisappear(perform: {
+            Task(priority: .background, operation: {
+                try await client.disconnect()
+            })
         })
     }
 }

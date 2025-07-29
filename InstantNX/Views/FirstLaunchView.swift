@@ -108,7 +108,7 @@ struct FirstLaunchPage4View: View {
             Text("家族や友人と情報を共有できます")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("読み取った内容は簡単にシェアできます")
+            Text("読み取った動画・画像はSNSやメッセージアプリで共有できます")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

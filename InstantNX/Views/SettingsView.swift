@@ -38,23 +38,25 @@ struct InAppBrowserLink<Label: View>: View {
 }
 
 struct SettingsView: View {
-    @AppStorage("APP_ISFIRST_LAUNCH") private var isFirstLaunch: Bool = true
+    @EnvironmentObject private var client: NXClient
+    @AppStorage("IS_FIRST_LAUNCH") private var isFirstLaunch: Bool = true
 
     var body: some View {
         Form(content: {
             Section(content: {
-                Button(action: {
-                    isFirstLaunch.toggle()
+                Picker(selection: $client.action, content: {
+                    ForEach(NXAction.allCases, id: \.self, content: { action in
+                        Text(action.rawValue)
+                            .id(action)
+                    })
                 }, label: {
-                    Text("アプリの使い方")
+                    Text("接続時の動作")
                 })
-                Button(action: {
-                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                        SKStoreReviewController.requestReview(in: scene)
-                    }
-                }, label: {
-                    Text("アプリを評価する")
-                })
+                .pickerStyle(.navigationLink)
+            }, header: {
+                Text("動作")
+            })
+            Section(content: {
                 InAppBrowserLink(url: URL(string: "https://qleap.jp/term/eula")!, label: {
                     Text("利用規約")
                 })
@@ -67,6 +69,22 @@ struct SettingsView: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }, label: {
                     Text("ライセンス")
+                })
+            }, header: {
+                Text("ライセンス")
+            })
+            Section(content: {
+                Button(action: {
+                    isFirstLaunch.toggle()
+                }, label: {
+                    Text("アプリの使い方")
+                })
+                Button(action: {
+                    if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                        SKStoreReviewController.requestReview(in: scene)
+                    }
+                }, label: {
+                    Text("アプリを評価する")
                 })
                 HStack(content: {
                     Text("バージョン")

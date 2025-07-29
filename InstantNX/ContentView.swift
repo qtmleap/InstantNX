@@ -24,9 +24,16 @@ struct ContentView: View {
                 Label("アルバム", systemImage: "photo.fill.on.rectangle.fill")
             }
             NavigationView(content: {
-                SettingsView()
+                HistoryView()
             })
             .tag(1)
+            .tabItem {
+                Label("履歴", systemImage: "clock")
+            }
+            NavigationView(content: {
+                SettingsView()
+            })
+            .tag(2)
             .tabItem {
                 Label("設定", systemImage: "gear")
             }

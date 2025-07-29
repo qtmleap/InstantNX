@@ -10,9 +10,7 @@
 		10338CBA2CBAA69000A166C3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 10338CB92CBAA69000A166C3 /* CodeScanner */; };
 		10338CBD2CBAB7DE00A166C3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CBC2CBAB7DD00A166C3 /* String.swift */; };
 		10338CC72CBACDA500A166C3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 10338CC62CBACDA500A166C3 /* SDWebImageSwiftUI */; };
-		10338CCC2CBAD1F400A166C3 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CCB2CBAD1F200A166C3 /* QRView.swift */; };
 		10338CCF2CBAD77100A166C3 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 10338CCE2CBAD77100A166C3 /* Alamofire */; };
-		10338CD22CBAEAC900A166C3 /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CD12CBAEAC500A166C3 /* Modal.swift */; };
 		10338CD42CBB420E00A166C3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CD32CBB420A00A166C3 /* SettingsView.swift */; };
 		10338CD62CBB423000A166C3 /* NSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CD52CBB422D00A166C3 /* NSConfig.swift */; };
 		10338CD82CBB46BE00A166C3 /* NSShareItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CD72CBB46BB00A166C3 /* NSShareItem.swift */; };
@@ -37,6 +35,10 @@
 		10E954642E38D06800AC7B28 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954632E38D06800AC7B28 /* GalleryView.swift */; };
 		10E9548F2E38D2DC00AC7B28 /* LicenseList in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9548E2E38D2DC00AC7B28 /* LicenseList */; };
 		10E954922E38D9E400AC7B28 /* BetterSafariView in Frameworks */ = {isa = PBXBuildFile; productRef = 10E954912E38D9E400AC7B28 /* BetterSafariView */; };
+		10E954942E38DEBB00AC7B28 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954932E38DEBB00AC7B28 /* HistoryView.swift */; };
+		10E954962E38E1DF00AC7B28 /* QRScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954952E38E1DB00AC7B28 /* QRScanView.swift */; };
+		10E954982E39046700AC7B28 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954972E39046300AC7B28 /* ActivityView.swift */; };
+		10E9549B2E390C3A00AC7B28 /* NXAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9549A2E390C3200AC7B28 /* NXAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +61,6 @@
 /* Begin PBXFileReference section */
 		10338CBC2CBAB7DD00A166C3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		10338CBE2CBAC12000A166C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10338CCB2CBAD1F200A166C3 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
-		10338CD12CBAEAC500A166C3 /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		10338CD32CBB420A00A166C3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		10338CD52CBB422D00A166C3 /* NSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSConfig.swift; sourceTree = "<group>"; };
 		10338CD72CBB46BB00A166C3 /* NSShareItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSShareItem.swift; sourceTree = "<group>"; };
@@ -82,6 +82,10 @@
 		10D6C2C32CBA855D00F8A5D4 /* InstantNX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstantNX.entitlements; sourceTree = "<group>"; };
 		10E954612E38C7CE00AC7B28 /* NXClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXClient.swift; sourceTree = "<group>"; };
 		10E954632E38D06800AC7B28 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		10E954932E38DEBB00AC7B28 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		10E954952E38E1DB00AC7B28 /* QRScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanView.swift; sourceTree = "<group>"; };
+		10E954972E39046300AC7B28 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		10E9549A2E390C3200AC7B28 /* NXAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,10 +135,12 @@
 		10338CC42CBACC7800A166C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				10E954972E39046300AC7B28 /* ActivityView.swift */,
 				109FA48F2E38BFA6000D841C /* FirstLaunchView.swift */,
+				10E954952E38E1DB00AC7B28 /* QRScanView.swift */,
 				10338CD32CBB420A00A166C3 /* SettingsView.swift */,
-				10338CCB2CBAD1F200A166C3 /* QRView.swift */,
 				10E954632E38D06800AC7B28 /* GalleryView.swift */,
+				10E954932E38DEBB00AC7B28 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,14 +153,6 @@
 				10E954612E38C7CE00AC7B28 /* NXClient.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		10338CD02CBAEABC00A166C3 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				10338CD12CBAEAC500A166C3 /* Modal.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		10D6C28A2CBA7DC000F8A5D4 = {
@@ -182,7 +180,7 @@
 			children = (
 				109FA48D2E38BF98000D841C /* GoogleService-Info.plist */,
 				10338CBE2CBAC12000A166C3 /* Info.plist */,
-				10338CD02CBAEABC00A166C3 /* Components */,
+				10E954992E390C2A00AC7B28 /* Enums */,
 				10338CC42CBACC7800A166C3 /* Views */,
 				10338CC82CBACDE800A166C3 /* Utils */,
 				10338CBB2CBAB7AC00A166C3 /* Extensions */,
@@ -220,6 +218,14 @@
 				10D6C2B32CBA7DC100F8A5D4 /* InstantNXUITestsLaunchTests.swift */,
 			);
 			path = InstantNXUITests;
+			sourceTree = "<group>";
+		};
+		10E954992E390C2A00AC7B28 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				10E9549A2E390C3200AC7B28 /* NXAction.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,16 +374,18 @@
 			files = (
 				10338CDA2CBB489B00A166C3 /* UIApplication.swift in Sources */,
 				10338CD82CBB46BE00A166C3 /* NSShareItem.swift in Sources */,
+				10E954982E39046700AC7B28 /* ActivityView.swift in Sources */,
 				10338CBD2CBAB7DE00A166C3 /* String.swift in Sources */,
 				10D6C2992CBA7DC000F8A5D4 /* ContentView.swift in Sources */,
 				109FA4902E38BFAB000D841C /* FirstLaunchView.swift in Sources */,
+				10E954942E38DEBB00AC7B28 /* HistoryView.swift in Sources */,
 				10D6C2972CBA7DC000F8A5D4 /* mainApp.swift in Sources */,
 				10338CD42CBB420E00A166C3 /* SettingsView.swift in Sources */,
 				10E954642E38D06800AC7B28 /* GalleryView.swift in Sources */,
 				10338CD62CBB423000A166C3 /* NSConfig.swift in Sources */,
+				10E9549B2E390C3A00AC7B28 /* NXAction.swift in Sources */,
+				10E954962E38E1DF00AC7B28 /* QRScanView.swift in Sources */,
 				10E954622E38C7CE00AC7B28 /* NXClient.swift in Sources */,
-				10338CD22CBAEAC900A166C3 /* Modal.swift in Sources */,
-				10338CCC2CBAD1F400A166C3 /* QRView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
