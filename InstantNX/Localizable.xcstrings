@@ -1,13 +1,49 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "NONE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択"
+          }
+        }
+      }
+    },
     "QRコードを発行して読取り" : {
 
     },
     "QRコード読取り" : {
 
     },
+    "SAVE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "SHARE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有"
+          }
+        }
+      }
+    },
     "アプリの使い方" : {
+
+    },
+    "アプリの動作を変更することができます" : {
 
     },
     "アプリを評価する" : {
@@ -52,10 +88,10 @@
     "履歴" : {
 
     },
-    "接続時の動作" : {
+    "発行されたQRコードを読取ります" : {
 
     },
-    "発行されたQRコードを読取ります" : {
+    "自動保存" : {
 
     },
     "設定" : {

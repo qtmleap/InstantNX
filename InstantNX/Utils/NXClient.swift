@@ -18,7 +18,9 @@ import UIKit
 final class NXClient: ObservableObject, RequestRetrier, RequestInterceptor {
     // MARK: Internal
 
-    @Published var action: NXAction = .NONE
+    // 自動保存を有効化するかどうか
+    @Published var isAutoSaveEnabled: Bool = false
+//    @Published var action: NXAction = .NONE
     @Published var contents: [URL] = []
 
     //    @MainActor
@@ -83,6 +85,31 @@ final class NXClient: ObservableObject, RequestRetrier, RequestInterceptor {
             .validate()
             .serializingDecodable(NXScanResult.self, decoder: decoder)
             .value
+
+        let images: [UIImage] = try await withThrowingTaskGroup(of: UIImage.self, body: { task in
+            for content in response.contents {
+                task.addTask(priority: .background, operation: { [self] in
+                    let destination: DownloadRequest.Destination = { _, _ in
+                        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(content.lastPathComponent)
+                        return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+                    }
+                    print("Downloading content: \(content)")
+                    return try await .init(data: session.download(content, to: destination)
+                        .serializingData(automaticallyCancelling: true)
+                        .value)!
+                })
+            }
+            return try await task.reduce(into: [UIImage]()) { results, result in
+                results.append(result)
+            }
+        })
+        // 自動保存が有効ならフォトライブラリに保存する
+        if isAutoSaveEnabled {
+            for image in images {
+                print("Saving image: \(image)")
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+            }
+        }
         contents = try await withThrowingTaskGroup(of: URL.self, body: { task in
             for content in response.contents {
                 task.addTask(priority: .background, operation: { [self] in

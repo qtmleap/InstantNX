@@ -44,17 +44,14 @@ struct SettingsView: View {
     var body: some View {
         Form(content: {
             Section(content: {
-                Picker(selection: $client.action, content: {
-                    ForEach(NXAction.allCases, id: \.self, content: { action in
-                        Text(action.rawValue)
-                            .id(action)
-                    })
-                }, label: {
-                    Text("接続時の動作")
+                Toggle(isOn: $client.isAutoSaveEnabled, label: {
+                    Text("自動保存")
                 })
-                .pickerStyle(.navigationLink)
+                .toggleStyle(.switch)
             }, header: {
                 Text("動作")
+            }, footer: {
+                Text("アプリの動作を変更することができます")
             })
             Section(content: {
                 InAppBrowserLink(url: URL(string: "https://qleap.jp/term/eula")!, label: {

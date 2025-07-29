@@ -8,8 +8,7 @@
 
 import Foundation
 
-enum NXAction: String, CaseIterable, Identifiable {
-    var id: RawValue { rawValue }
+enum NXAction: LocalizedStringResource, CaseIterable {
     // 何もしない
     case NONE
     // 保存
