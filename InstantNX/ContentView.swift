@@ -23,13 +23,13 @@ struct ContentView: View {
             .tabItem {
                 Label("アルバム", systemImage: "photo.fill.on.rectangle.fill")
             }
-            NavigationView(content: {
-                HistoryView()
-            })
-            .tag(1)
-            .tabItem {
-                Label("履歴", systemImage: "clock")
-            }
+//            NavigationView(content: {
+//                HistoryView()
+//            })
+//            .tag(1)
+//            .tabItem {
+//                Label("履歴", systemImage: "clock")
+//            }
             NavigationView(content: {
                 SettingsView()
             })
@@ -42,8 +42,8 @@ struct ContentView: View {
             FirstLaunchView()
                 .interactiveDismissDisabled(true)
         })
-        .toast(isPresenting: $client.isConnecting, alert: {
-            AlertToast(displayMode: .alert, type: .loading, title: "Nintendo Switchに接続中")
+        .toast(isPresenting: client.isConnecting, alert: {
+            AlertToast(displayMode: .hud, type: .loading, title: String(localized: client.status.rawValue))
         })
         .confirmationDialog("保存成功しました", isPresented: $client.isCompleted, titleVisibility: .visible, actions: {
             Button(role: .cancel, action: {}, label: {

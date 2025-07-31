@@ -9,10 +9,10 @@
 import Foundation
 
 enum NXAction: LocalizedStringResource, CaseIterable {
-    // 何もしない
-    case NONE
-    // 保存
-    case SAVE
-    // シェア
-    case SHARE
+    /// 何もしない
+    case NONE = "NONE"
+    /// 保存
+    case SAVE = "SAVE"
+    /// シェア
+    case SHARE = "SHARE"
 }

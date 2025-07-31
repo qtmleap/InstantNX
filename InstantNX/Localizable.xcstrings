@@ -1,6 +1,26 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "CONNECTING" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nintendo Switchに接続中"
+          }
+        }
+      }
+    },
+    "DOWNLOADING" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コンテンツのダウンロード中"
+          }
+        }
+      }
+    },
     "NONE" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -15,10 +35,10 @@
     "QRコードを発行して読取り" : {
 
     },
-    "QRコードを読み込んで画像や動画をスマートフォンに高速に転送できます。" : {
+    "QRコードを読み込んでください" : {
 
     },
-    "QRコード読取り" : {
+    "QRコードを読み込んで画像や動画をスマートフォンに高速に転送できます。" : {
 
     },
     "SAVE" : {
@@ -43,6 +63,16 @@
         }
       }
     },
+    "WAITING" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セットアップ中"
+          }
+        }
+      }
+    },
     "アプリの使い方" : {
 
     },
@@ -61,6 +91,9 @@
     "保存成功しました" : {
 
     },
+    "保存時にダイアログを表示する" : {
+
+    },
     "動画は一件、画像は最大十件まで選択できます。" : {
 
     },
@@ -74,6 +107,9 @@
 
     },
     "自動でアルバムに追加" : {
+
+    },
+    "自動保存する" : {
 
     },
     "設定" : {

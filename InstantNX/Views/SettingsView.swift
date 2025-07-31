@@ -11,9 +11,18 @@ import QuantumLeap
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject private var client: NXClient
+    
     var body: some View {
         Form(content: {
-            QuantumLeap.Support()
+            QuantumLeap.Support(label: {
+                Toggle(isOn: $client.autosave, label: {
+                    Text("AUTOSAVE_TOGGLE")
+                })
+                Toggle(isOn: $client.shouldShowOpenPhotoLibraryDialog, label: {
+                    Text("SHOWDIALOG_TOGGLE")
+                })
+            })
             QuantumLeap.Policy()
             QuantumLeap.Version()
         })

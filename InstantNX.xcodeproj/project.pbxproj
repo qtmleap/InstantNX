@@ -34,6 +34,7 @@
 		10D6C2B42CBA7DC100F8A5D4 /* InstantNXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D6C2B32CBA7DC100F8A5D4 /* InstantNXUITestsLaunchTests.swift */; };
 		10D6C2C12CBA825E00F8A5D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D6C2C02CBA825E00F8A5D4 /* Assets.xcassets */; };
 		10DCB15A2E3A834300D360DF /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 10DCB1592E3A834300D360DF /* AlertToast */; };
+		10DCB1C02E3B9CA000D360DF /* NXStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DCB1BF2E3B9C9D00D360DF /* NXStatus.swift */; };
 		10E954622E38C7CE00AC7B28 /* NXClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954612E38C7CE00AC7B28 /* NXClient.swift */; };
 		10E954642E38D06800AC7B28 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954632E38D06800AC7B28 /* GalleryView.swift */; };
 		10E9548F2E38D2DC00AC7B28 /* LicenseList in Frameworks */ = {isa = PBXBuildFile; productRef = 10E9548E2E38D2DC00AC7B28 /* LicenseList */; };
@@ -85,6 +86,7 @@
 		10D6C2B32CBA7DC100F8A5D4 /* InstantNXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantNXUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		10D6C2C02CBA825E00F8A5D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D6C2C32CBA855D00F8A5D4 /* InstantNX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InstantNX.entitlements; sourceTree = "<group>"; };
+		10DCB1BF2E3B9C9D00D360DF /* NXStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXStatus.swift; sourceTree = "<group>"; };
 		10E954612E38C7CE00AC7B28 /* NXClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXClient.swift; sourceTree = "<group>"; };
 		10E954632E38D06800AC7B28 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		10E954932E38DEBB00AC7B28 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		10E954992E390C2A00AC7B28 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				10DCB1BF2E3B9C9D00D360DF /* NXStatus.swift */,
 				10E9549A2E390C3200AC7B28 /* NXAction.swift */,
 			);
 			path = Enums;
@@ -389,6 +392,7 @@
 				10E954942E38DEBB00AC7B28 /* HistoryView.swift in Sources */,
 				10D6C2972CBA7DC000F8A5D4 /* mainApp.swift in Sources */,
 				10338CD42CBB420E00A166C3 /* SettingsView.swift in Sources */,
+				10DCB1C02E3B9CA000D360DF /* NXStatus.swift in Sources */,
 				10E954642E38D06800AC7B28 /* GalleryView.swift in Sources */,
 				10338CD62CBB423000A166C3 /* NSConfig.swift in Sources */,
 				10E9549B2E390C3A00AC7B28 /* NXAction.swift in Sources */,
@@ -570,7 +574,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = InstantNX/InstantNX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"InstantNX/Preview Content\"";
 				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				ENABLE_PREVIEWS = YES;
@@ -614,7 +618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = InstantNX/InstantNX.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"InstantNX/Preview Content\"";
 				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				ENABLE_PREVIEWS = YES;
@@ -656,7 +660,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = D9HU6JZF2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -675,7 +679,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = D9HU6JZF2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
@@ -693,7 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = D9HU6JZF2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -710,7 +714,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = D9HU6JZF2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
