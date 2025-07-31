@@ -57,8 +57,7 @@ public extension UIApplication {
     func popToRootView() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let rootViewController = windowScene.windows.first(where: { $0.isKeyWindow })?.rootViewController,
-           let navigationController = findNavigationController(rootViewController)
-        {
+           let navigationController = findNavigationController(rootViewController) {
             navigationController.popToRootViewController(animated: true)
         }
     }

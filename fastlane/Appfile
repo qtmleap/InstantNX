@@ -1,4 +1,4 @@
-app_identifier("work.tkgstrator.EnteiKun") # The bundle identifier of your app
+app_identifier("jp.qleap.instant-nx") # The bundle identifier of your app
 apple_id("tkgstrator@qleap.jp") # Your Apple Developer Portal username
 
 itc_team_id("127957832") # App Store Connect Team ID

@@ -23,6 +23,8 @@ struct FirstLaunchView: View {
                 .tag(2)
             FirstLaunchPage4View()
                 .tag(3)
+            FirstLaunchPage5View()
+                .tag(4)
         })
         .tabViewStyle(.page)
         .introspect(.pageControl, on: .iOS(.v14, .v15, .v16, .v17, .v18)) { pageControl in
@@ -51,7 +53,7 @@ struct FirstLaunchPage1View: View {
             Text("アプリの使い方")
                 .font(.title)
                 .fontWeight(.bold)
-            Text("スマートフォンでQRコードを読み込んで画像や動画を転送したり、SNSに投稿することができます")
+            Text("QRコードを読み込んで画像や動画をスマートフォンに高速に転送できます。")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -63,14 +65,14 @@ struct FirstLaunchPage1View: View {
 struct FirstLaunchPage2View: View {
     var body: some View {
         VStack(spacing: 24) {
-            Image("Scan")
+            Image("Album")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
             Text("アルバムから画像や動画を選択")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("動画は一件、画像は最大十件まで選択できます")
+            Text("動画は一件、画像は最大十件まで選択できます。")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -82,14 +84,14 @@ struct FirstLaunchPage2View: View {
 struct FirstLaunchPage3View: View {
     var body: some View {
         VStack(spacing: 24) {
-            Image("Result")
+            Image("QRcode")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
             Text("QRコードを発行して読取り")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("発行されたQRコードを読取ります")
+            Text("発行されたQRコードを読取ります。")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -101,14 +103,33 @@ struct FirstLaunchPage3View: View {
 struct FirstLaunchPage4View: View {
     var body: some View {
         VStack(spacing: 24) {
+            Image("Gallery")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 140)
+            Text("自動でアルバムに追加")
+                .font(.title2)
+                .fontWeight(.bold)
+            Text("選択した画像と動画は自動でアルバムに追加されます。ファイルを選択する手間は不要です。")
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+        }
+        .padding()
+    }
+}
+
+struct FirstLaunchPage5View: View {
+    var body: some View {
+        VStack(spacing: 24) {
             Image("Share")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 180)
+                .frame(height: 140)
             Text("家族や友人と情報を共有できます")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("読み取った動画・画像はSNSやメッセージアプリで共有できます")
+            Text("読み取った動画・画像はフォトアルバムからSNSやメッセージアプリで共有できます。")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)

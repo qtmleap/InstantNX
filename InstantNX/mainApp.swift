@@ -6,6 +6,7 @@
 //
 
 import FirebaseCore
+import QuantumLeap
 import SwiftUI
 
 // MARK: - mainApp
@@ -20,6 +21,7 @@ struct mainApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(NXClient())
+                .environmentIsFirstLaunch()
         }
     }
 }

@@ -5,14 +5,14 @@
 //  Created by devonly on 2024/10/12.
 //
 
+import AlertToast
 import CodeScanner
 import NetworkExtension
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("IS_FIRST_LAUNCH") private var isFirstLaunch: Bool = true
-
-    // MARK: Internal
+    @EnvironmentObject private var client: NXClient
+    @Environment(\.isFirstLaunch) private var isFirstLaunch
 
     var body: some View {
         TabView(content: {
@@ -38,15 +38,24 @@ struct ContentView: View {
                 Label("設定", systemImage: "gear")
             }
         })
-        .sheet(isPresented: $isFirstLaunch, content: {
+        .sheet(isPresented: isFirstLaunch, content: {
             FirstLaunchView()
                 .interactiveDismissDisabled(true)
         })
+        .toast(isPresenting: $client.isConnecting, alert: {
+            AlertToast(displayMode: .alert, type: .loading, title: "Nintendo Switchに接続中")
+        })
+        .confirmationDialog("保存成功しました", isPresented: $client.isCompleted, titleVisibility: .visible, actions: {
+            Button(role: .cancel, action: {}, label: {
+                Text("キャンセル")
+            })
+            Button(action: {
+                UIApplication.shared.open(URL(string: "photos-redirect://")!)
+            }, label: {
+                Text("アルバムを開く")
+            })
+        })
     }
-
-    // MARK: Private
-
-    @State private var isPresented: Bool = false
 }
 
 #Preview {

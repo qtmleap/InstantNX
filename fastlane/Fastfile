@@ -26,8 +26,8 @@ platform :ios do
   lane :beta do
     # scan
     fetch_testflight_profile
-    increment_build_number(xcodeproj: "KaraokeTool.xcodeproj")
-    build_app(scheme: "KaraokeTool")
+    increment_build_number(xcodeproj: "InstantNX.xcodeproj")
+    build_app(scheme: "InstantNX")
     upload_to_testflight(
       skip_waiting_for_build_processing: true,
       demo_account_required: false,
