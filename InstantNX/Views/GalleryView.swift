@@ -6,16 +6,16 @@
 //  Copyright © 2025 Magi, Corporation. All rights reserved.
 //
 
+import AVFoundation
 import CodeScanner
 import Foundation
+import LinkPresentation
 import SDWebImageSwiftUI
 import SwiftUI
-import AVFoundation
-import LinkPresentation
 
 struct GalleryListItem: View {
     @Binding var content: ContentItem
-    
+
     var body: some View {
         Button(action: {
             content.isSelected.toggle()
@@ -36,7 +36,7 @@ struct GalleryView: View {
     @EnvironmentObject private var client: NXClient
     @State private var isPresented: Bool = false
     @State private var isScanPresented: Bool = false
-    
+
     var GalleryEmpty: some View {
         VStack(content: {
             Image("QRcode")
@@ -49,7 +49,7 @@ struct GalleryView: View {
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
-    
+
     var GalleryList: some View {
         ScrollView(content: {
             LazyVGrid(columns: .init(repeating: .init(.flexible()), count: 2), content: {
@@ -59,7 +59,7 @@ struct GalleryView: View {
             })
         })
     }
-    
+
     var body: some View {
         Group(content: {
             if client.contents.isEmpty {

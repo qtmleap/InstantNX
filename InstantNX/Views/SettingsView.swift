@@ -12,7 +12,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var client: NXClient
-    
+
     var body: some View {
         Form(content: {
             QuantumLeap.Support(label: {

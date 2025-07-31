@@ -16,5 +16,4 @@ public enum NXStatus: LocalizedStringResource, CaseIterable {
     case CONNECTING = "CONNECTING"
     /// ダウンロード中
     case DOWNLOADING = "DOWNLOADING"
-
 }

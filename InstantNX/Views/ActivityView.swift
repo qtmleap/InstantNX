@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import SwiftUI
 import LinkPresentation
+import SwiftUI
 
 class ActivityItem: NSObject, UIActivityItemSource {
-    
     private let metadata: LPLinkMetadata = .init()
     private let image: UIImage
-    
+
     init(content: ContentItem) {
         image = content.image
         metadata.title = "Instant NX"
@@ -27,28 +26,28 @@ class ActivityItem: NSObject, UIActivityItemSource {
         }
         super.init()
     }
-    
+
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
-        return metadata
+        metadata
     }
-    
+
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return image
+        image
     }
-    
+
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        return image
+        image
     }
 }
 
 struct ActivityView: UIViewControllerRepresentable {
     var activityItems: [Any]
     let applicationActivities: [UIActivity]? = nil
-    
+
     init(contents: [ContentItem]) {
-        self.activityItems = contents.map({ ActivityItem(content: $0) })
+        activityItems = contents.map { ActivityItem(content: $0) }
     }
-    
+
     func makeUIViewController(context: Context) -> UIActivityViewController {
         let controller: UIActivityViewController = .init(activityItems: activityItems, applicationActivities: applicationActivities)
         return controller
