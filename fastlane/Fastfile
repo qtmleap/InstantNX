@@ -26,14 +26,14 @@ platform :ios do
   lane :beta do
     # scan
     fetch_testflight_profile
-    increment_build_number(xcodeproj: "InstantNX.xcodeproj")
     build_app(scheme: "InstantNX")
     upload_to_testflight(
       skip_waiting_for_build_processing: true,
       demo_account_required: false,
-      notify_external_testers: false,
+      notify_external_testers: true,
       expire_previous_builds: true
     )
+    increment_build_number(xcodeproj: "InstantNX.xcodeproj")
   end
 
   desc "Fetch TestFlight profile and cert"
