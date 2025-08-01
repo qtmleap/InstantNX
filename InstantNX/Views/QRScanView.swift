@@ -15,7 +15,7 @@ struct QRScanView: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, shouldVibrateOnSuccess: true, isTorchOn: false, videoCaptureDevice: .zoomedCameraForQRCode(), completion: { result in
+        CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "WIFI:S:switch_6116480100I;T:WPA;P:wtrd2dhw;;", shouldVibrateOnSuccess: true, isTorchOn: false, videoCaptureDevice: .zoomedCameraForQRCode(), completion: { result in
             switch result {
                 case let .success(code):
                     Task(priority: .background, operation: {
