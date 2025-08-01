@@ -11,9 +11,11 @@ import SwiftUI
 
 public enum NXStatus: LocalizedStringResource, CaseIterable {
     /// 待機状態
-    case WAITING = "WAITING"
+    case WAITING = "STATUS_WAITING"
+    /// 準備中
+    case PREPARING = "STATUS_PREPARING"
     /// 接続中
-    case CONNECTING = "CONNECTING"
+    case CONNECTING = "STATUS_CONNECTING"
     /// ダウンロード中
-    case DOWNLOADING = "DOWNLOADING"
+    case DOWNLOADING = "STATUS_DOWNLOADING"
 }

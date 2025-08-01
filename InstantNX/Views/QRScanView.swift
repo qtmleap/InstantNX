@@ -22,7 +22,7 @@ struct QRScanView: View {
                     })
                     dismiss()
                 case let .failure(error):
-                    print(error)
+                    break
             }
         })
     }

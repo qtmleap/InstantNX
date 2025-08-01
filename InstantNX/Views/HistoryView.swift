@@ -13,7 +13,7 @@ struct HistoryView: View {
 
     var body: some View {
         ScrollView(content: {})
-            .navigationTitle("履歴")
+            .navigationTitle("TITLE_HISTORY")
             .navigationBarTitleDisplayMode(.inline)
     }
 }

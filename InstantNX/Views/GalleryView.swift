@@ -29,6 +29,20 @@ struct GalleryListItem: View {
             Rectangle()
                 .strokeBorder(content.isSelected ? Color.red : Color.primary, lineWidth: 2, antialiased: true)
         })
+        .overlay(alignment: .topTrailing, content: {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundStyle(.green)
+                .font(.title3)
+                .padding(8)
+        })
+        .overlay(alignment: .center, content: {
+            if content.type == .movie {
+                Image(systemName: "play.circle")
+                    .foregroundStyle(.white)
+                    .font(.largeTitle)
+                    .padding(8)
+            }
+        })
     }
 }
 
@@ -36,6 +50,7 @@ struct GalleryView: View {
     @EnvironmentObject private var client: NXClient
     @State private var isPresented: Bool = false
     @State private var isScanPresented: Bool = false
+    private let generator: UIImpactFeedbackGenerator = .init(style: .medium)
 
     var GalleryEmpty: some View {
         VStack(content: {
@@ -44,7 +59,7 @@ struct GalleryView: View {
                 .scaledToFit()
                 .frame(height: 140)
                 .padding(.bottom)
-            Text("QRコードを読み込んでください")
+            Text("TEXT_PLEASE_SCAN_QRCODE")
                 .font(.title2)
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -71,6 +86,7 @@ struct GalleryView: View {
         .overlay(alignment: .bottomTrailing, content: {
             VStack(content: {
                 Button(action: {
+                    generator.impactOccurred()
                     isScanPresented.toggle()
                 }, label: {
                     Image(systemName: "qrcode.viewfinder")
@@ -83,6 +99,7 @@ struct GalleryView: View {
                 })
                 if !client.contents.isEmpty {
                     Button(action: {
+                        generator.impactOccurred()
                         isPresented.toggle()
                     }, label: {
                         Image(systemName: "plus")
@@ -107,7 +124,7 @@ struct GalleryView: View {
                 .ignoresSafeArea(.all)
         })
         .padding(.horizontal)
-        .navigationTitle("アルバム")
+        .navigationTitle("TITLE_ALBUM")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

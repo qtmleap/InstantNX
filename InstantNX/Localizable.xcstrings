@@ -1,34 +1,114 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "CONNECTING" : {
+    "ACTION_NONE" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Connecting"
+            "value" : "None"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Nintendo Switchに接続中"
+            "state" : "translated",
+            "value" : "未選択"
           }
         }
       }
     },
-    "DOWNLOADING" : {
+    "ACTION_SAVE" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Downloading"
+            "value" : "Save"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "コンテンツのダウンロード中"
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
+    "ACTION_SHARE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "共有"
+          }
+        }
+      }
+    },
+    "FOOTER_PHOTO_LIBRARY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configure whether to auto-save or open the Photo Library after saving"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存時に自動保存やフォトライブラリを開くかどうかを設定できます"
+          }
+        }
+      }
+    },
+    "HEADER_PHOTO_LIBRARY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Photo Library"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォトライブラリ"
+          }
+        }
+      }
+    },
+    "LABEL_GALLERY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Album"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバム"
+          }
+        }
+      }
+    },
+    "LABEL_SETTING" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
           }
         }
       }
@@ -44,24 +124,21 @@
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "選択"
           }
         }
       }
     },
-    "QRコードを発行して読取り" : {
-
-    },
-    "QRコードを読み込んでください" : {
-
-    },
-    "QRコードを読み込んで画像や動画をスマートフォンに高速に転送できます。" : {
-
-    },
     "SAVE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -70,9 +147,31 @@
         }
       }
     },
+    "SAVE_SUCCESSFULLY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved successfully"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存に成功しました"
+          }
+        }
+      }
+    },
     "SHARE" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -81,70 +180,357 @@
         }
       }
     },
-    "WAITING" : {
+    "STATUS_CONNECTING" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecting"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "セットアップ中"
+            "value" : "接続中"
           }
         }
       }
     },
-    "アプリの使い方" : {
-
+    "STATUS_DOWNLOADING" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダウンロード中"
+          }
+        }
+      }
     },
-    "アルバム" : {
+    "STATUS_PREPARING" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preparing"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "準備中"
+          }
+        }
+      }
+    },
+    "STATUS_WAITING" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waiting for device"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デバイス待機中"
+          }
+        }
+      }
+    },
+    "TEXT_AUTO_ADD_TO_ALBUM" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto-Save to Photo Library"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバムへの自動保存"
+          }
+        }
+      }
+    },
+    "TEXT_AUTOSAVE_TOGGLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto-Save"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライブラリに自動保存"
+          }
+        }
+      }
+    },
+    "TEXT_CANCEL" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
+    "TEXT_GENERATE_QRCODE_AND_SCAN" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Generate QR code"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QRコードを発行します"
+          }
+        }
+      }
+    },
+    "TEXT_HOW_TO_USE_THE_APP" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to use the app"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリの使い方"
+          }
+        }
+      }
+    },
+    "TEXT_OPEN_PHOTO_LIBRARY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Photo Library"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライブラリを開く"
+          }
+        }
+      }
+    },
+    "TEXT_PLEASE_SCAN_QRCODE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please scan the QR code"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QRコードを読み込んでください"
+          }
+        }
+      }
+    },
+    "TEXT_SCAN_GENERATED_QRCODE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just scan the generated QR code with the app."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "発行したQRコードをアプリで読み込むだけ。"
+          }
+        }
+      }
+    },
+    "TEXT_SCAN_QRCODE_AND_SELECT_IMAGES" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can scan the QR code to transfer videos and images from your Nintendo Switch."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QRコードを読み込んでニンテンドースイッチから動画と画像を転送することができます"
+          }
+        }
+      }
+    },
+    "TEXT_SELECT_FROM_ALBUM" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Just select images and videos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画像と動画を選択するだけ"
+          }
+        }
+      }
+    },
+    "TEXT_SELECT_VIDEO_ONCE_IMAGE_UP_TO_TEN" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select the images and videos you want to send from the album to your smartphone."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバムからスマートフォンに送りたい画像と動画を選択します。"
+          }
+        }
+      }
+    },
+    "TEXT_SELECTED_FILES_AUTO_ADDED_TO_ALBUM" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transferred images and videos will be automatically added to the library. You can disable this in the settings."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "転送された画像と動画は自動でライブラリに追加されます。設定で無効化することもできます。"
+          }
+        }
+      }
+    },
+    "TEXT_SHARE_WITH_FAMILY_AND_FRIENDS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share transferred files with family and friends"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "転送したファイルを共有しよう"
+          }
+        }
+      }
+    },
+    "TEXT_SHARED_FROM_ALBUM_TO_SNS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can post files to messaging apps or SNS."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルをメッセージアプリやSNSに投稿することができます。"
+          }
+        }
+      }
+    },
+    "TEXT_SHOWDIALOG_TOGGLE" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm Opening"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存成功時にダイアログを表示する"
+          }
+        }
+      }
+    },
+    "TITLE_ALBUM" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Album"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アルバム"
+          }
         }
       }
     },
-    "アルバムから画像や動画を選択" : {
-
+    "TITLE_HISTORY" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "History"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "履歴"
+          }
+        }
+      }
     },
-    "アルバムを開く" : {
-
-    },
-    "キャンセル" : {
-
-    },
-    "保存成功しました" : {
-
-    },
-    "保存時にダイアログを表示する" : {
-
-    },
-    "動画は一件、画像は最大十件まで選択できます。" : {
-
-    },
-    "家族や友人と情報を共有できます" : {
-
-    },
-    "履歴" : {
-
-    },
-    "発行されたQRコードを読取ります。" : {
-
-    },
-    "自動でアルバムに追加" : {
-
-    },
-    "自動保存する" : {
-
-    },
-    "設定" : {
-
-    },
-    "読み取った動画・画像はフォトアルバムからSNSやメッセージアプリで共有できます。" : {
-
-    },
-    "選択した画像と動画は自動でアルバムに追加されます。ファイルを選択する手間は不要です。" : {
-
+    "TITLE_SETTINGS" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

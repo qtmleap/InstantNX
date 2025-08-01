@@ -9,20 +9,34 @@
 import Foundation
 import LinkPresentation
 import SwiftUI
+import UniformTypeIdentifiers
 
 class ActivityItem: NSObject, UIActivityItemSource {
     private let metadata: LPLinkMetadata = .init()
-    private let image: UIImage
+    private let content: ContentItem
 
     init(content: ContentItem) {
-        image = content.image
+        self.content = content
         metadata.title = "Instant NX"
         metadata.originalURL = content.url
-//        metadata.iconProvider = NSItemProvider(contentsOf: content.url)
-        metadata.imageProvider = NSItemProvider(contentsOf: content.url)
         if content.type == .movie {
-            metadata.videoProvider = NSItemProvider(contentsOf: content.url)
+            let provider = NSItemProvider()
+            provider.registerFileRepresentation(forTypeIdentifier: UTType.movie.identifier, fileOptions: [], visibility: .all) { completion in
+                completion(content.url, false, nil)
+                return nil
+            }
+            metadata.iconProvider = provider
+            metadata.imageProvider = provider
+            metadata.videoProvider = provider
             metadata.remoteVideoURL = content.url
+        } else {
+            let provider = NSItemProvider()
+            provider.registerFileRepresentation(forTypeIdentifier: UTType.image.identifier, fileOptions: [], visibility: .all) { completion in
+                completion(content.url, false, nil)
+                return nil
+            }
+            metadata.iconProvider = provider
+            metadata.imageProvider = provider
         }
         super.init()
     }
@@ -32,11 +46,11 @@ class ActivityItem: NSObject, UIActivityItemSource {
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        image
+        content.type == .photo ? content.image : content.url
     }
 
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        image
+        content.type == .photo ? content.image : content.url
     }
 }
 

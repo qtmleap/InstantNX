@@ -586,6 +586,7 @@
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = NSMediaLibraryUsageDescription;
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = NSLocalNetworkUsageDescription;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = NSPhotoLibraryAdditionsUsageDescription;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = NSPhotoLibraryUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -630,6 +631,7 @@
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = NSMediaLibraryUsageDescription;
 				INFOPLIST_KEY_NSCameraUsageDescription = NSCameraUsageDescription;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = NSLocalNetworkUsageDescription;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = NSLocationWhenInUseUsageDescription;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = NSPhotoLibraryAdditionsUsageDescription;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = NSPhotoLibraryUsageDescription;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

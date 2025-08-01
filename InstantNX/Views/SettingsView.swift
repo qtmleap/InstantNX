@@ -15,18 +15,23 @@ struct SettingsView: View {
 
     var body: some View {
         Form(content: {
-            QuantumLeap.Support(label: {
+            QuantumLeap.Support()
+            Section(content: {
                 Toggle(isOn: $client.autosave, label: {
-                    Text("AUTOSAVE_TOGGLE")
+                    Text("TEXT_AUTOSAVE_TOGGLE")
                 })
                 Toggle(isOn: $client.shouldShowOpenPhotoLibraryDialog, label: {
-                    Text("SHOWDIALOG_TOGGLE")
+                    Text("TEXT_SHOWDIALOG_TOGGLE")
                 })
+            }, header: {
+                Text("HEADER_PHOTO_LIBRARY")
+            }, footer: {
+                Text("FOOTER_PHOTO_LIBRARY")
             })
             QuantumLeap.Policy()
             QuantumLeap.Version()
         })
-        .navigationTitle("設定")
+        .navigationTitle("TITLE_SETTINGS")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

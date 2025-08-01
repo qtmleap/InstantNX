@@ -1,11 +1,3 @@
-//
-//  FirstLaunchView.swift
-//  Instant NX
-//
-//  Created by devonly on 2025/07/25.
-//  Copyright © 2025 QuantumLeap. All rights reserved.
-//
-
 import Foundation
 import SwiftUI
 import SwiftUIIntrospect
@@ -50,14 +42,16 @@ struct FirstLaunchPage1View: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
-            Text("アプリの使い方")
+            Text("TEXT_HOW_TO_USE_THE_APP")
                 .font(.title)
                 .fontWeight(.bold)
-            Text("QRコードを読み込んで画像や動画をスマートフォンに高速に転送できます。")
+            Text("TEXT_SCAN_QRCODE_AND_SELECT_IMAGES")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
 }
@@ -69,14 +63,16 @@ struct FirstLaunchPage2View: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
-            Text("アルバムから画像や動画を選択")
+            Text("TEXT_SELECT_FROM_ALBUM")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("動画は一件、画像は最大十件まで選択できます。")
+            Text("TEXT_SELECT_VIDEO_ONCE_IMAGE_UP_TO_TEN")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
 }
@@ -88,14 +84,16 @@ struct FirstLaunchPage3View: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
-            Text("QRコードを発行して読取り")
+            Text("TEXT_GENERATE_QRCODE_AND_SCAN")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("発行されたQRコードを読取ります。")
+            Text("TEXT_SCAN_GENERATED_QRCODE")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
 }
@@ -107,14 +105,16 @@ struct FirstLaunchPage4View: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
-            Text("自動でアルバムに追加")
+            Text("TEXT_AUTO_ADD_TO_ALBUM")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("選択した画像と動画は自動でアルバムに追加されます。ファイルを選択する手間は不要です。")
+            Text("TEXT_SELECTED_FILES_AUTO_ADDED_TO_ALBUM")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
 }
@@ -126,14 +126,16 @@ struct FirstLaunchPage5View: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 140)
-            Text("家族や友人と情報を共有できます")
+            Text("TEXT_SHARE_WITH_FAMILY_AND_FRIENDS")
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("読み取った動画・画像はフォトアルバムからSNSやメッセージアプリで共有できます。")
+            Text("TEXT_SHARED_FROM_ALBUM_TO_SNS")
                 .font(.body)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
         }
+        .padding(.top, 48)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding()
     }
 }

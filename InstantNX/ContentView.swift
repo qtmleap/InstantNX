@@ -21,7 +21,7 @@ struct ContentView: View {
             })
             .tag(0)
             .tabItem {
-                Label("アルバム", systemImage: "photo.fill.on.rectangle.fill")
+                Label("LABEL_GALLERY", systemImage: "photo.fill.on.rectangle.fill")
             }
 //            NavigationView(content: {
 //                HistoryView()
@@ -35,7 +35,7 @@ struct ContentView: View {
             })
             .tag(2)
             .tabItem {
-                Label("設定", systemImage: "gear")
+                Label("LABEL_SETTING", systemImage: "gear")
             }
         })
         .sheet(isPresented: isFirstLaunch, content: {
@@ -45,14 +45,14 @@ struct ContentView: View {
         .toast(isPresenting: client.isConnecting, alert: {
             AlertToast(displayMode: .hud, type: .loading, title: String(localized: client.status.rawValue))
         })
-        .confirmationDialog("保存成功しました", isPresented: $client.isCompleted, titleVisibility: .visible, actions: {
+        .confirmationDialog("SAVE_SUCCESSFULLY", isPresented: $client.isCompleted, titleVisibility: .visible, actions: {
             Button(role: .cancel, action: {}, label: {
-                Text("キャンセル")
+                Text("TEXT_CANCEL")
             })
             Button(action: {
                 UIApplication.shared.open(URL(string: "photos-redirect://")!)
             }, label: {
-                Text("アルバムを開く")
+                Text("TEXT_OPEN_PHOTO_LIBRARY")
             })
         })
     }
