@@ -3,9 +3,15 @@
   "strings" : {
     "CONNECTING" : {
       "localizations" : {
-        "ja" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Connecting"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Nintendo Switchに接続中"
           }
         }
@@ -13,9 +19,15 @@
     },
     "DOWNLOADING" : {
       "localizations" : {
-        "ja" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Downloading"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "コンテンツのダウンロード中"
           }
         }
@@ -24,9 +36,15 @@
     "NONE" : {
       "extractionState" : "manual",
       "localizations" : {
-        "ja" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "None"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "選択"
           }
         }
@@ -77,7 +95,14 @@
 
     },
     "アルバム" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Album"
+          }
+        }
+      }
     },
     "アルバムから画像や動画を選択" : {
 
