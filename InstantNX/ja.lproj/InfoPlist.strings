@@ -11,4 +11,4 @@
 "NSPhotoLibraryAdditionsUsageDescription" = "画像などを写真ライブラリに保存するためにアクセスが必要です。";
 "NSLocalNetworkUsageDescription" = "同じネットワーク上のデバイスと通信するためにローカルネットワークの使用許可が必要です。";
 "NSPhotoLibraryUsageDescription" = "写真やビデオを選択するために写真ライブラリへのアクセスが必要です。";
-"NSLocationWhenInUseUsageDescription" = "接続状態を確認するためにWi-Fi情報を利用します。";
+"NSLocationWhenInUseUsageDescription" = "正確に接続状態を確認するためにWi-Fi情報を利用します。";

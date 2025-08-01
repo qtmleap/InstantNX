@@ -255,7 +255,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "アルバムへの自動保存"
+            "value" : "フォトライブラリへの自動保存"
           }
         }
       }
@@ -271,7 +271,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ライブラリに自動保存"
+            "value" : "自動保存"
           }
         }
       }
@@ -479,7 +479,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "保存成功時にダイアログを表示する"
+            "value" : "フォトライブラリを開く"
           }
         }
       }

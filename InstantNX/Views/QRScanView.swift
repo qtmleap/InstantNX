@@ -7,6 +7,7 @@
 //
 
 import CodeScanner
+import QuantumLeap
 import SwiftUI
 
 struct QRScanView: View {
@@ -22,7 +23,7 @@ struct QRScanView: View {
                     })
                     dismiss()
                 case let .failure(error):
-                    break
+                    Logger.error(error)
             }
         })
     }
