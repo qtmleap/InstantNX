@@ -9,6 +9,7 @@ import AlertToast
 import CodeScanner
 import NetworkExtension
 import SwiftUI
+import SwiftUIIntrospect
 
 struct ContentView: View {
     @EnvironmentObject private var client: NXClient
@@ -19,25 +20,25 @@ struct ContentView: View {
             NavigationView(content: {
                 GalleryView()
             })
+            .navigationViewStyle(.stack)
             .tag(0)
             .tabItem {
                 Label("LABEL_GALLERY", systemImage: "photo.fill.on.rectangle.fill")
             }
-//            NavigationView(content: {
-//                HistoryView()
-//            })
-//            .tag(1)
-//            .tabItem {
-//                Label("履歴", systemImage: "clock")
-//            }
             NavigationView(content: {
                 SettingsView()
             })
+            .introspect(.navigationSplitView, on: .iOS(.v16, .v17, .v18)) { view in
+                view.preferredDisplayMode = .oneBesideSecondary
+                view.preferredSplitBehavior = .tile
+                view.presentsWithGesture = true
+            }
             .tag(2)
             .tabItem {
                 Label("LABEL_SETTING", systemImage: "gear")
             }
         })
+        .tabViewStyle(.automatic)
         .sheet(isPresented: isFirstLaunch, content: {
             FirstLaunchView()
                 .interactiveDismissDisabled(true)
