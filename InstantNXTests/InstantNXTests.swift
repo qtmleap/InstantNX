@@ -1,5 +1,5 @@
 //
-//  SkyShareTests.swift
+//  InstantNXTests.swift
 //  InstantNXTests
 //
 //  Created by devonly on 2024/10/12.
