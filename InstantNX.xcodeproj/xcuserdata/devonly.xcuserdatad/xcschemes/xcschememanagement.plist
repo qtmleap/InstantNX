@@ -7,7 +7,30 @@
 		<key>InstantNX.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+		<key>Promises (Playground).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>10D6C2922CBA7DC000F8A5D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>10D6C2A22CBA7DC100F8A5D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>10D6C2AC2CBA7DC100F8A5D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

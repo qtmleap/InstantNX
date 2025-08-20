@@ -49,6 +49,38 @@
         }
       }
     },
+    "BUTTON_END" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "とじる"
+          }
+        }
+      }
+    },
+    "BUTTON_NEXT" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "つぎへ"
+          }
+        }
+      }
+    },
     "FOOTER_PHOTO_LIBRARY" : {
       "localizations" : {
         "en" : {
