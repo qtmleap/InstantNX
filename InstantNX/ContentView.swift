@@ -3,6 +3,7 @@
 //  InstantNX
 //
 //  Created by devonly on 2024/10/12.
+//  Copyright © 2025 QuantumLeap. All rights reserved.
 //
 
 import AlertToast

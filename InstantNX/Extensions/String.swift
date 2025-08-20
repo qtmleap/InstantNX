@@ -3,7 +3,7 @@
 //  InstantNX
 //
 //  Created by devonly on 2024/10/12.
-//  Copyright @ 2024 Magi, Corporation. All rights reserved.
+//  Copyright © 2025 QuantumLeap. All rights reserved.
 //
 
 import Foundation

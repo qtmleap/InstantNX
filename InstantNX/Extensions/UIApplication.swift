@@ -3,7 +3,7 @@
 //  InstantNX
 //
 //  Created by devonly on 2024/10/13.
-//  Copyright © 2024 Magi, Corporation. All rights reserved.
+//  Copyright © 2025 Magi, Corporation. All rights reserved.
 //
 
 import Foundation

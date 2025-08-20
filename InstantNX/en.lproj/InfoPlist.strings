@@ -12,3 +12,4 @@
 "NSLocalNetworkUsageDescription" = "We need access to your local network to connect with nearby devices.";
 "NSPhotoLibraryUsageDescription" = "We need access to your photo library to select photos or videos.";
 "NSLocationWhenInUseUsageDescription" = "Wi-Fi information is used to check the connection status.";
+"NSUserTrackingUsageDescription" = "Allow tracking to help us understand app usage and improve your experience.";

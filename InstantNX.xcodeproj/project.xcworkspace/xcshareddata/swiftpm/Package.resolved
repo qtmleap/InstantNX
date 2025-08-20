@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cybozu/LicenseList.git",
       "state" : {
-        "revision" : "a0a1784aa60dcdafbc30cb2ffbac90544b46100a",
-        "version" : "2.1.0"
+        "revision" : "56f1b5724138e4d9f60453b555edc80e43805503",
+        "version" : "2.2.0"
       }
     },
     {
@@ -168,8 +168,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/qtmleap/QuantumLeap",
       "state" : {
-        "revision" : "b06e8c9f301dadf2cde490bf01f311d62d5057b9",
-        "version" : "0.0.4"
+        "revision" : "d4de22ef4952c0c9310be413154361749c3fc599",
+        "version" : "0.0.8"
       }
     },
     {
@@ -195,8 +195,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "102a647b573f60f73afdce5613a51d71349fe507",
-        "version" : "1.30.0"
+        "revision" : "e3f69fd321d0c9fcdc16fb576a0cdd956675face",
+        "version" : "1.31.0"
       }
     },
     {

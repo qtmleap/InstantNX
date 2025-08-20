@@ -1,3 +1,11 @@
+//
+//  ChessClockApp.swift
+//  InstantNX
+//
+//  Created by devonly on 2025/08/09.
+//  Copyright © 2025 QuantumLeap. All rights reserved.
+//
+
 import Foundation
 import SwiftUI
 import SwiftUIIntrospect
