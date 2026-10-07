@@ -1,58 +1,27 @@
-name: Continuous Integration
+name: Commit Policy
 on:
+  pull_request:
+    branches: [develop, master]
   push:
+    branches: [develop, master]
+permissions:
+  contents: read
 jobs:
   commitlint:
     name: CommitLint
-    if: github.event.action != 'closed' || github.event.pull_request.merged != true
-    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, Linux, X64, ubuntu-latest, docker]
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Bun
-        uses: oven-sh/setup-bun@v1
+      - uses: actions/checkout@v5
         with:
-          bun-version: latest
-      - name: Install commitlint
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Conventional commit headers
         run: |
-          bun install conventional-changelog-conventionalcommits
-          bun install commitlint@latest
-          bun install @commitlint/config-conventional@latest
-      - name: Validate current commit (last commit) with commitlint
-        if: github.event_name == 'push'
-        run: bunx commitlint --last --verbose
-      - name: Validate PR commits with commitlint
-        if: github.event_name == 'pull_request'
-        run: bunx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
-  check:
-    name: Code Check
-    runs-on: macos-latest
-    if: github.event.action != 'closed' || github.event.pull_request.merged != true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: |
-          brew install swiftlint swiftformat
-      - name: Run SwiftLint
-        run: |
-          swiftlint
-      - name: Run SwiftFormat in lint mode
-        run: |
-          swiftformat . --lint
-  test:
-    name: Test
-    runs-on: macos-15
-    if: github.event.action != 'closed' || github.event.pull_request.merged != true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: 16.4
-      - name: Build the Swift package
-        run: |
-          swift build --build-tests
-      - name: Run tests
-        run: |
-          swift test
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -e HOME=/tmp -e GITHUB_EVENT_PATH -e GITHUB_EVENT_NAME -e GITHUB_REPOSITORY \
+            -v "${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE}:ro" \
+            -v "${RUNNER_TEMP}:${RUNNER_TEMP}:ro" -w "${GITHUB_WORKSPACE}" \
+            ruby:3.4.10@sha256:ce3b7a999d9e430e59e1a12456c631fbea3dd18948c89cf8a913c3566c77b2ae \
+            ruby build-support/commit-policy.rb

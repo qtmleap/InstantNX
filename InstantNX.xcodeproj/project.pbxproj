@@ -24,8 +24,6 @@
 		10907BE62E55972300CE4BC4 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 10907BE52E55972300CE4BC4 /* FirebasePerformance */; };
 		10907BE82E55972900CE4BC4 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 10907BE72E55972900CE4BC4 /* FirebaseRemoteConfig */; };
 		10907BEA2E55978300CE4BC4 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 10907BE92E55978300CE4BC4 /* FirebaseAppCheck */; };
-		109FA4862E38BF49000D841C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 109FA4852E38BF49000D841C /* FirebaseAnalytics */; };
-		109FA4882E38BF49000D841C /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 109FA4872E38BF49000D841C /* FirebaseAnalyticsCore */; };
 		109FA48A2E38BF49000D841C /* FirebaseAnalyticsIdentitySupport in Frameworks */ = {isa = PBXBuildFile; productRef = 109FA4892E38BF49000D841C /* FirebaseAnalyticsIdentitySupport */; };
 		109FA48C2E38BF49000D841C /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 109FA48B2E38BF49000D841C /* FirebaseCrashlytics */; };
 		109FA48E2E38BF98000D841C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 109FA48D2E38BF98000D841C /* GoogleService-Info.plist */; };
@@ -47,6 +45,7 @@
 		10E954962E38E1DF00AC7B28 /* QRScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954952E38E1DB00AC7B28 /* QRScanView.swift */; };
 		10E954982E39046700AC7B28 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E954972E39046300AC7B28 /* ActivityView.swift */; };
 		10E9549B2E390C3A00AC7B28 /* NXAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E9549A2E390C3200AC7B28 /* NXAction.swift */; };
+		72B63CD66295C1012E5992A5 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = B8A2FEAC6B497472B5C4AF92 /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,14 +111,13 @@
 				109FA48C2E38BF49000D841C /* FirebaseCrashlytics in Frameworks */,
 				10907BDE2E55970600CE4BC4 /* FirebaseAnalytics in Frameworks */,
 				10907BE02E55970E00CE4BC4 /* FirebaseAnalyticsCore in Frameworks */,
-				109FA4882E38BF49000D841C /* FirebaseAnalyticsCore in Frameworks */,
 				10907BE82E55972900CE4BC4 /* FirebaseRemoteConfig in Frameworks */,
 				10907BE62E55972300CE4BC4 /* FirebasePerformance in Frameworks */,
 				1024F1792E3A5E0000BC07C8 /* QuantumLeap in Frameworks */,
-				109FA4862E38BF49000D841C /* FirebaseAnalytics in Frameworks */,
 				10338CBA2CBAA69000A166C3 /* CodeScanner in Frameworks */,
 				10DCB15A2E3A834300D360DF /* AlertToast in Frameworks */,
 				10E954922E38D9E400AC7B28 /* BetterSafariView in Frameworks */,
+				72B63CD66295C1012E5992A5 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +268,24 @@
 			dependencies = (
 			);
 			name = InstantNX;
+			packageProductDependencies = (
+				10907BE32E55971D00CE4BC4 /* FirebaseMessaging */,
+				10907BE92E55978300CE4BC4 /* FirebaseAppCheck */,
+				10338CCE2CBAD77100A166C3 /* Alamofire */,
+				10907BE12E55971400CE4BC4 /* FirebaseCore */,
+				10338CC62CBACDA500A166C3 /* SDWebImageSwiftUI */,
+				109FA4892E38BF49000D841C /* FirebaseAnalyticsIdentitySupport */,
+				109FA48B2E38BF49000D841C /* FirebaseCrashlytics */,
+				10907BDD2E55970600CE4BC4 /* FirebaseAnalytics */,
+				10907BDF2E55970E00CE4BC4 /* FirebaseAnalyticsCore */,
+				10907BE72E55972900CE4BC4 /* FirebaseRemoteConfig */,
+				10907BE52E55972300CE4BC4 /* FirebasePerformance */,
+				1024F1782E3A5E0000BC07C8 /* QuantumLeap */,
+				10338CB92CBAA69000A166C3 /* CodeScanner */,
+				10DCB1592E3A834300D360DF /* AlertToast */,
+				10E954912E38D9E400AC7B28 /* BetterSafariView */,
+				B8A2FEAC6B497472B5C4AF92 /* SwiftUIIntrospect */,
+			);
 			productName = InstantNX;
 			productReference = 10D6C2932CBA7DC000F8A5D4 /* InstantNX.app */;
 			productType = "com.apple.product-type.application";
@@ -350,6 +366,8 @@
 				109FA4842E38BF49000D841C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				1024F1772E3A5E0000BC07C8 /* XCRemoteSwiftPackageReference "QuantumLeap" */,
 				10DCB1582E3A834300D360DF /* XCRemoteSwiftPackageReference "AlertToast" */,
+				10E954902E38D9E400AC7B28 /* XCRemoteSwiftPackageReference "BetterSafariView" */,
+				69A74B3BB87882C59506C477 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 10D6C2942CBA7DC000F8A5D4 /* Products */;
@@ -495,6 +513,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -512,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -559,6 +578,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -570,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -679,10 +699,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = D9HU6JZF2Q;
+				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = work.tkgstrator.InstantNXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -698,10 +718,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = D9HU6JZF2Q;
+				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = work.tkgstrator.InstantNXTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -716,9 +736,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = D9HU6JZF2Q;
+				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = work.tkgstrator.InstantNXUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -733,9 +754,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = D9HU6JZF2Q;
+				DEVELOPMENT_TEAM = 5Q94QJ7G98;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = work.tkgstrator.InstantNXUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -791,56 +813,64 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/qtmleap/QuantumLeap";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				kind = revision;
+				revision = e68cb0aed9394348b54969e018e14d640b4126e2;
 			};
 		};
 		10338CB82CBAA69000A166C3 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.5.1;
+				kind = exactVersion;
+				version = 2.5.2;
 			};
 		};
 		10338CC52CBACDA500A166C3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.2;
+				kind = exactVersion;
+				version = 3.1.3;
 			};
 		};
 		10338CCD2CBAD77100A166C3 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
+				kind = exactVersion;
+				version = 5.10.2;
 			};
 		};
 		109FA4842E38BF49000D841C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.1.0;
+				kind = exactVersion;
+				version = 12.1.0;
 			};
 		};
 		10DCB1582E3A834300D360DF /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/elai950/AlertToast.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.9;
+				kind = exactVersion;
+				version = 1.3.9;
 			};
 		};
 		10E954902E38D9E400AC7B28 /* XCRemoteSwiftPackageReference "BetterSafariView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stleamist/BetterSafariView.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 2.4.2;
+			};
+		};
+		69A74B3BB87882C59506C477 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -901,16 +931,6 @@
 			package = 109FA4842E38BF49000D841C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAppCheck;
 		};
-		109FA4852E38BF49000D841C /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 109FA4842E38BF49000D841C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		109FA4872E38BF49000D841C /* FirebaseAnalyticsCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 109FA4842E38BF49000D841C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsCore;
-		};
 		109FA4892E38BF49000D841C /* FirebaseAnalyticsIdentitySupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 109FA4842E38BF49000D841C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -930,6 +950,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 10E954902E38D9E400AC7B28 /* XCRemoteSwiftPackageReference "BetterSafariView" */;
 			productName = BetterSafariView;
+		};
+		B8A2FEAC6B497472B5C4AF92 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69A74B3BB87882C59506C477 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
