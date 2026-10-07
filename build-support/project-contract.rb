@@ -17,7 +17,7 @@ check(project.targets.map(&:name).sort == [NAME, "#{NAME}Tests", "#{NAME}UITests
   check(config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] == "16.0", "Deployment target mismatch")
 end
 app.build_configurations.each do |config|
-  check(config.build_settings["MARKETING_VERSION"] == "1.0.2", "Marketing version differs from the existing TestFlight version")
+  check(config.build_settings["MARKETING_VERSION"] == "1.0.3", "Marketing version differs from the release version")
   check(config.build_settings["PRODUCT_BUNDLE_IDENTIFIER"] == BUNDLE, "Bundle mismatch")
   check(config.build_settings["CODE_SIGN_ENTITLEMENTS"] == "#{NAME}/#{NAME}.entitlements", "Entitlement membership mismatch")
   plist = config.build_settings["INFOPLIST_FILE"]

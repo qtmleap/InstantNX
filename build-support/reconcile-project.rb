@@ -39,7 +39,7 @@ end
   config.build_settings["DEVELOPMENT_TEAM"] = "5Q94QJ7G98"
   config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "16.0"
 end
-app.build_configurations.each { |config| config.build_settings["MARKETING_VERSION"] = "1.0.2" }
+app.build_configurations.each { |config| config.build_settings["MARKETING_VERSION"] = "1.0.3" }
 project.save
 scheme = Xcodeproj::XCScheme.new
 scheme.add_build_target(app)
