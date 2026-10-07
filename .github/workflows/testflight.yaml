@@ -79,7 +79,7 @@ jobs:
         uses: qtmleap/actions/actions/apple-toolchain@00c36aeda988735333907b407d98f6a4a9478b64
         with:
           xcode-version: '27'
-          developer-dir: /Applications/Xcode.app/Contents/Developer
+          developer-dir: /Applications/Xcode_27.app/Contents/Developer
       - name: Prepare Ruby and fastlane
         uses: qtmleap/actions/actions/setup-ruby@00c36aeda988735333907b407d98f6a4a9478b64
         with:
