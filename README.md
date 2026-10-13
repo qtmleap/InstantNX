@@ -4,8 +4,8 @@ This is an application that uses Nintendo Switch’s QR code-based album sharing
 
 ### Requirements
 
-- iOS 16.x
-- Xcode 16.x
+- iOS 17.x
+- Xcode 27
 - fastlane
 
 ## Contributors

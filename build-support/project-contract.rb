@@ -14,7 +14,7 @@ check(app && app.product_type == "com.apple.product-type.application", "App iden
 check(project.targets.map(&:name).sort == [NAME, "#{NAME}Tests", "#{NAME}UITests"].sort, "Target inventory mismatch")
 (project.build_configurations + project.targets.flat_map(&:build_configurations)).each do |config|
   check(config.build_settings["DEVELOPMENT_TEAM"] == "5Q94QJ7G98", "Team mismatch")
-  check(config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] == "16.0", "Deployment target mismatch")
+  check(config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] == "17.0", "Deployment target mismatch")
 end
 app.build_configurations.each do |config|
   check(config.build_settings["MARKETING_VERSION"] == "1.0.3", "Marketing version differs from the release version")
@@ -68,7 +68,7 @@ project.root_object.package_references.each do |package|
   pin = pins.find { |entry| entry.fetch("location").delete_suffix(".git").downcase == package.repositoryURL.delete_suffix(".git").downcase }
   check(pin, "Missing direct package pin")
   expected_requirement = if pin.fetch("identity") == "quantumleap"
-    check(pin.fetch("state") == { "revision" => "e68cb0aed9394348b54969e018e14d640b4126e2" }, "QuantumLeap must use the observed immutable 0.0.8 revision")
+    check(pin.fetch("state") == { "revision" => "4070b8707b824c3264f2cd1bb672a81aea8318a3" }, "QuantumLeap must use the immutable 1.0.1 tag revision")
     { "kind" => "revision", "revision" => pin.fetch("state").fetch("revision") }
   else
     { "kind" => "exactVersion", "version" => pin.fetch("state").fetch("version") }

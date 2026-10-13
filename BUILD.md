@@ -4,7 +4,7 @@ The existing InstantNX project and Package.resolved are retained. The shared
 `InstantNX` scheme references actual app/unit/UI target IDs and explicit testables.
 The project registers its linked SPM products, including the current direct
 SwiftUIIntrospect import, and pins direct requirements to existing lock versions.
-Team is `5Q94QJ7G98`, minimum iOS 16; existing bundle and app versions are preserved.
+Team is `5Q94QJ7G98`, minimum iOS 17; existing bundle and app versions are preserved.
 No application behavior or Swift sources were changed.
 
 ```sh
@@ -19,12 +19,10 @@ performs trusted resolution/archive/upload. Broken Swift-package CI (there is no
 root Package.swift), hosted checks, AI review and package.json version validation
 were removed. CommitLint uses a minimal trusted Ruby conventional-header policy.
 
-The existing lock is a baseline, not a newly verified full resolver result.
-QuantumLeap 0.0.8 declares public SwiftFormat/SwiftLintPlugins dependencies absent
-from that lock. The Codex Mac must run the actual full Xcode resolver and reconcile
-all resulting pins before native dependency resolution can be declared verified.
+The project and build-support locks contain the full Xcode 27 resolver result for
+QuantumLeap 1.0.1 (revision 4070b87) and its transitive dependencies.
 Linux project contracts and Ruby policies do not prove compilation, simulator
 tests or an archive. Fix native errors only from compiler output.
 
 Native Xcode 27 dependency resolution and unsigned simulator build passed.
-Marketing version 1.0.2 matches the latest TestFlight version.
+Marketing version 1.0.3 is the next App Store version after 1.0.2.
