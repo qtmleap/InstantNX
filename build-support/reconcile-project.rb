@@ -28,7 +28,7 @@ products.each { |product| app.package_product_dependencies << product }
 products.map(&:package).uniq.each do |package|
   project.root_object.package_references << package unless project.root_object.package_references.include?(package)
   pin = pins.find { |entry| entry.fetch("location").delete_suffix(".git").downcase == package.repositoryURL.delete_suffix(".git").downcase } or abort "Missing pin: #{package.repositoryURL}"
-  # Pin the published 0.0.8 code by revision; its tag has a conflicting cached fingerprint.
+  # Pin the published 1.0.1 tag commit by revision; its tag has a conflicting cached fingerprint.
   package.requirement = if pin.fetch("identity") == "quantumleap"
     { "kind" => "revision", "revision" => pin.fetch("state").fetch("revision") }
   else
@@ -37,7 +37,7 @@ products.map(&:package).uniq.each do |package|
 end
 (project.build_configurations + project.targets.flat_map(&:build_configurations)).each do |config|
   config.build_settings["DEVELOPMENT_TEAM"] = "5Q94QJ7G98"
-  config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "16.0"
+  config.build_settings["IPHONEOS_DEPLOYMENT_TARGET"] = "17.0"
 end
 app.build_configurations.each { |config| config.build_settings["MARKETING_VERSION"] = "1.0.3" }
 project.save
