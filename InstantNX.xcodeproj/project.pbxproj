@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1024F1792E3A5E0000BC07C8 /* QuantumLeap in Frameworks */ = {isa = PBXBuildFile; productRef = 1024F1782E3A5E0000BC07C8 /* QuantumLeap */; };
+		10A0E1D22F0000000000B101 /* QuantumLeapUpdates in Frameworks */ = {isa = PBXBuildFile; productRef = 10A0E1D22F0000000000B102 /* QuantumLeapUpdates */; };
 		1024F1AE2E3A6AB400BC07C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1024F1AD2E3A6AB400BC07C8 /* InfoPlist.strings */; };
 		10338CBA2CBAA69000A166C3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 10338CB92CBAA69000A166C3 /* CodeScanner */; };
 		10338CBD2CBAB7DE00A166C3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10338CBC2CBAB7DD00A166C3 /* String.swift */; };
@@ -116,6 +117,7 @@
 				10907BE82E55972900CE4BC4 /* FirebaseRemoteConfig in Frameworks */,
 				10907BE62E55972300CE4BC4 /* FirebasePerformance in Frameworks */,
 				1024F1792E3A5E0000BC07C8 /* QuantumLeap in Frameworks */,
+				10A0E1D22F0000000000B101 /* QuantumLeapUpdates in Frameworks */,
 				109FA4862E38BF49000D841C /* FirebaseAnalytics in Frameworks */,
 				10338CBA2CBAA69000A166C3 /* CodeScanner in Frameworks */,
 				10DCB15A2E3A834300D360DF /* AlertToast in Frameworks */,
@@ -270,6 +272,9 @@
 			dependencies = (
 			);
 			name = InstantNX;
+			packageProductDependencies = (
+				10A0E1D22F0000000000B102 /* QuantumLeapUpdates */,
+			);
 			productName = InstantNX;
 			productReference = 10D6C2932CBA7DC000F8A5D4 /* InstantNX.app */;
 			productType = "com.apple.product-type.application";
@@ -608,12 +613,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.qleap.instant-nx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -654,12 +659,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.qleap.instant-nx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -792,7 +797,7 @@
 			repositoryURL = "https://github.com/qtmleap/QuantumLeap";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
+				minimumVersion = 1.0.0;
 			};
 		};
 		10338CB82CBAA69000A166C3 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
@@ -850,6 +855,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1024F1772E3A5E0000BC07C8 /* XCRemoteSwiftPackageReference "QuantumLeap" */;
 			productName = QuantumLeap;
+		};
+		10A0E1D22F0000000000B102 /* QuantumLeapUpdates */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1024F1772E3A5E0000BC07C8 /* XCRemoteSwiftPackageReference "QuantumLeap" */;
+			productName = QuantumLeapUpdates;
 		};
 		10338CB92CBAA69000A166C3 /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;

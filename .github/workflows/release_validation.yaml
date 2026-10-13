@@ -3,36 +3,35 @@ on:
   pull_request:
     types: [opened, reopened, ready_for_review, synchronize]
 
+permissions:
+  contents: read
+
 jobs:
   validation:
     name: Validation
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install
-        if: ${{ github.event.head.user.login == 'act' }}
-        run: |
-          apt-get update
-          apt-get install -y unzip zip jq curl
-      - name: Latest Release Version
-        id: latest_version
-        uses: fangqiuming/latest-release-version@v1.1.1
-      - name: Current Version
-        id: current_version
-        run: |
-          echo "version=v$(cat package.json | jq -r '.version')" >> $GITHUB_OUTPUT
-      - name: Compare Versions
-        id: comparison
-        uses: fabriziocacicia/semver-compare-action@v0.1.0
         with:
-          first: ${{ steps.current_version.outputs.version }}
-          second: ${{ steps.latest_version.outputs.version }}
-      - name: Validate Version
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate marketing version
         run: |
-          if [ "${{ steps.comparison.outputs.result }}" == true ]; then
-            echo "Version is valid"
-          else
-            echo "Version is invalid"
+          # The app version lives in the Xcode project (there is no package.json).
+          versions=$(grep -E '^\s*MARKETING_VERSION = [0-9]+\.[0-9]+\.[0-9]+;' InstantNX.xcodeproj/project.pbxproj \
+            | sed -E 's/.*= ([0-9.]+);/\1/' | sort -u)
+          if [ "$(printf '%s\n' "$versions" | wc -l)" != 1 ]; then
+            echo "::error::The app target configurations disagree on MARKETING_VERSION: $versions"
+            exit 1
+          fi
+          latest=$(git tag --list 'v[0-9]*' | sed 's/^v//' | sort -V | tail -n 1)
+          echo "project version: $versions, latest tag: ${latest:-none}"
+          if [ -n "$latest" ] && [ "$(printf '%s\n%s\n' "$latest" "$versions" | sort -V | tail -n 1)" != "$versions" ]; then
+            echo "::error::MARKETING_VERSION $versions is older than the latest release tag v$latest"
+            exit 1
+          fi
+          if [ "$versions" = "${latest:-}" ]; then
+            echo "::error::MARKETING_VERSION $versions was already released as v$latest; bump it"
             exit 1
           fi

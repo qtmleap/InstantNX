@@ -13,27 +13,132 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+require "fileutils"
+require "xcodeproj"
+require_relative "lib/release_signing"
+
 default_platform(:ios)
 
-before_all do |lane, options|
-  if lane == :beta && ENV["ENVIRONMENT"] == "CI"
-    setup_ci(provider: ENV["SETUP_CI_PROVIDER"])
-  end
+APP_IDENTIFIER = "jp.qleap.instant-nx".freeze
+TEAM_ID = "5Q94QJ7G98".freeze
+SCHEME = "InstantNX".freeze
+XCODE_PROJECT = "InstantNX.xcodeproj".freeze
+MIN_IOS = "17.0".freeze # app deployment floor; the verifier rejects an IPA below it
+REQUIRED_ENV = %w[
+  APP_STORE_CONNECT_API_KEY_KEY_ID
+  APP_STORE_CONNECT_API_KEY_ISSUER_ID
+  APP_STORE_CONNECT_API_KEY_KEY
+  MATCH_PASSWORD
+].freeze
+
+def repo_root
+  File.expand_path("..", FastlaneCore::FastlaneFolder.path)
 end
+
+# Fail before any network call, naming only the variables (never their values).
+def require_release_credentials
+  missing = REQUIRED_ENV.select { |name| ENV[name].to_s.strip.empty? }
+  return if missing.empty?
+
+  UI.user_error!("Missing release credentials: #{missing.join(', ')}. Nothing was built or uploaded.")
+end
+
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    # scan
-    fetch_testflight_profile
-    build_app(scheme: "InstantNX")
-    upload_to_testflight(
-      skip_waiting_for_build_processing: true,
-      demo_account_required: false,
-      notify_external_testers: true,
-      expire_previous_builds: true
+    require_release_credentials
+
+    api_key = asc_api_key
+
+    signing_targets = { SCHEME => APP_IDENTIFIER }
+    if ENV["CI"] == "true"
+      # Fail before any keychain or match work if the signing target is not in the project.
+      # Targets are Xcodeproj target names, not product names.
+      ReleaseSigning.resolve_targets(Xcodeproj::Project.open(File.join(repo_root, XCODE_PROJECT)), signing_targets.keys)
+    end
+
+    marketing_version = get_version_number(
+      xcodeproj: XCODE_PROJECT,
+      target: SCHEME,
+      configuration: "Release"
     )
-    increment_build_number(xcodeproj: "InstantNX.xcodeproj")
+    latest_build = latest_testflight_build_number(
+      api_key: api_key,
+      app_identifier: APP_IDENTIFIER,
+      version: marketing_version,
+      platform: "ios",
+      initial_build_number: 0
+    )
+    build_number = latest_build + 1
+    UI.message("Building #{marketing_version} (#{build_number}); latest on TestFlight is #{latest_build}")
+
+    xcargs = ["CURRENT_PROJECT_VERSION=#{build_number}", ENV["PACKAGE_RESOLUTION_ARGS"]].compact.join(" ")
+    output_directory = File.join(repo_root, "build", "ipa")
+    FileUtils.rm_rf(output_directory)
+    ipa = nil
+
+    # Signing happens in a keychain made for this run (random password, never the default),
+    # which is removed again however the lane ends.
+    ReleaseSigning.with_isolated_keychain do |keychain|
+      # Certificates are fetched, never created: match is read-only on this lane.
+      match(
+        **ReleaseSigning.match_options(api_key: api_key, app_identifier: APP_IDENTIFIER, keychain: keychain)
+      )
+
+      if ENV["CI"] == "true"
+        # The project signs Automatically with a development identity, which a CI runner does not
+        # have. Point the Release configuration of the app target at the matched App Store profile
+        # in this ephemeral checkout only.
+        profile_name = lane_context[SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING].fetch(APP_IDENTIFIER)
+        update_code_signing_settings(
+          use_automatic_signing: false,
+          path: XCODE_PROJECT,
+          team_id: TEAM_ID,
+          targets: [SCHEME],
+          build_configurations: ["Release"],
+          code_sign_identity: "Apple Distribution",
+          profile_name: profile_name
+        )
+        ReleaseSigning.verify_modified(
+          Xcodeproj::Project.open(File.join(repo_root, XCODE_PROJECT)),
+          { SCHEME => profile_name },
+          configurations: ["Release"]
+        )
+      end
+
+      ipa = build_app(
+        project: XCODE_PROJECT,
+        scheme: SCHEME,
+        configuration: "Release",
+        export_method: "app-store",
+        output_directory: output_directory,
+        derived_data_path: ENV["RUNNER_TEMP"].to_s.empty? ? nil : File.join(ENV["RUNNER_TEMP"], "DerivedData"),
+        xcargs: xcargs
+      )
+    end
+
+    # Prove the signed artifact is the one intended before anything leaves this machine.
+    sh(
+      "python3", File.join(repo_root, "scripts", "verify-ipa.py"), ipa,
+      "--bundle-id", APP_IDENTIFIER,
+      "--version", marketing_version,
+      "--build", build_number.to_s,
+      "--team", TEAM_ID,
+      "--min-os", MIN_IOS,
+      "--require-resource", "GoogleService-Info.plist"
+    )
+
+    upload_to_testflight(
+      api_key: api_key,
+      ipa: ipa,
+      app_identifier: APP_IDENTIFIER,
+      skip_waiting_for_build_processing: false,
+      demo_account_required: false,
+      notify_external_testers: false,
+      distribute_external: false,
+      expire_previous_builds: false
+    )
   end
 
   desc "Fetch TestFlight profile and cert"

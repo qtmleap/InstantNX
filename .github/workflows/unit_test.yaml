@@ -1,0 +1,81 @@
+name: Unit Test
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unit-test-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build and Test
+    # Fork PRs cannot reach the self-hosted runner or secrets; only same-repository PRs run.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, macos, arm64, xcode-27]
+    timeout-minutes: 45
+    env:
+      DERIVED_DATA: ${{ runner.temp }}/DerivedData
+      SOURCE_PACKAGES: ${{ runner.temp }}/SourcePackages
+      SIMULATOR_PREFIX: InstantNX-CI
+      SIMULATOR_MIN_IOS: "17.5"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Require selected Xcode 27
+        run: |
+          xcode-select -p
+          xcodebuild -version
+          if ! xcodebuild -version | grep -q '^Xcode 27\.'; then
+            echo "::error title=Wrong Xcode::This workflow requires Xcode 27 to be the selected Xcode on the runner."
+            exit 1
+          fi
+      - name: Authorize private QuantumLeap dependency
+        env:
+          QUANTUMLEAP_READ_TOKEN: ${{ secrets.QUANTUMLEAP_READ_TOKEN }}
+        run: scripts/ci-quantumleap-auth.sh
+      - name: Resolve packages
+        run: |
+          strict=$(python3 scripts/resolved-pins.py InstantNX.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved)
+          args=()
+          if [ "$strict" = yes ]; then
+            # QuantumLeap is locked to a committed release tag, so the lock must be honoured exactly.
+            args+=(-onlyUsePackageVersionsFromResolvedFile)
+          else
+            echo "::notice::Package.resolved does not pin a released QuantumLeap tag; resolving without the strict pin flag."
+          fi
+          echo "PACKAGE_RESOLUTION_ARGS=${args[*]:-}" >> "$GITHUB_ENV"
+          xcodebuild -resolvePackageDependencies \
+            -project InstantNX.xcodeproj \
+            -scheme InstantNX \
+            -clonedSourcePackagesDirPath "$SOURCE_PACKAGES" \
+            ${args[@]+"${args[@]}"}
+      - name: Create simulator
+        id: sim
+        run: |
+          udid=$(scripts/simulator.sh create)
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
+      - name: Build and test
+        run: |
+          set -o pipefail
+          # shellcheck disable=SC2086
+          xcodebuild test \
+            -project InstantNX.xcodeproj \
+            -scheme InstantNX \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath "$DERIVED_DATA" \
+            -clonedSourcePackagesDirPath "$SOURCE_PACKAGES" \
+            -only-testing:InstantNXTests \
+            $PACKAGE_RESOLUTION_ARGS \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Delete simulator
+        if: always() && steps.sim.outputs.udid != ''
+        run: scripts/simulator.sh delete "${{ steps.sim.outputs.udid }}"
+      - name: Remove build products
+        if: always()
+        run: rm -rf "$DERIVED_DATA" "$SOURCE_PACKAGES"

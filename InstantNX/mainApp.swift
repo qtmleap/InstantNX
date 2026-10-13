@@ -12,6 +12,7 @@ import Firebase
 import FirebaseAppCheck
 import FirebaseMessaging
 import QuantumLeap
+import QuantumLeapUpdates
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -66,6 +67,7 @@ struct mainApp: App {
             ContentView()
                 .environmentObject(NXClient())
                 .environmentIsFirstLaunch()
+                .quantumLeapUpdates(countryCode: "JP")
         }
     }
 }

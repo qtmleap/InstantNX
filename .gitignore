@@ -136,7 +136,7 @@ iOSInjectionProject/
 ### SwiftPackageManager ###
 Packages
 xcuserdata
-*.xcodeproj
+# Track project, shared schemes, and resolved dependency pins.
 
 
 ### SwiftPM ###
