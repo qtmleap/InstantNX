@@ -1,7 +1,7 @@
 # Shared iOS development routine in InstantNX
 
-Adopted from [qtmleap/devcontainers](https://github.com/qtmleap/devcontainers/tree/e481a99ab47994d6bdb7514adba12798699d4795)
-at `e481a99ab47994d6bdb7514adba12798699d4795`. The four files under `.agents/skills/ios-development/` are copied
+Adopted from [qtmleap/devcontainers](https://github.com/qtmleap/devcontainers/tree/a23986a98a51b7d71a28d39801c70c4c18c1e64c)
+at `a23986a98a51b7d71a28d39801c70c4c18c1e64c`. The four files under `.agents/skills/ios-development/` are copied
 without modification. Future refreshes compare that directory and merge the
 marked `development-orchestration` block in root `AGENTS.md`, preserving local
 rules. Adoption does not install tools or grant additional release authority.
@@ -35,3 +35,11 @@ Uploads use `.github/workflows/testflight.yaml` after a verified merge; retain i
 - An App Review monitor is established by a future authorized submission flow
   according to the copied follow-up reference. No monitor is installed merely
   by adopting these instructions.
+
+## UI screenshots and OS coverage
+
+Apply the [visual testing policy](../../.agents/skills/ios-development/references/testing-policy.md)
+for retained captures, matching references and baseline review on every selected
+UI-test run.
+
+The declared iOS minimum is 17; use compatible 18.x and 26.x visual cells. Existing minimum-supported release and hardware checks remain separate requirements.
