@@ -7,6 +7,17 @@ name: TestFlight
 on:
   push:
     branches: [develop, master]
+    paths-ignore:
+      - AGENTS.md
+      - CLAUDE.md
+      - README.md
+      - LICENSE
+      - .agents/skills/ios-development/SKILL.md
+      - .agents/skills/ios-development/references/app-review-followup.md
+      - .agents/skills/ios-development/references/release-policy.md
+      - .agents/skills/ios-development/references/testing-policy.md
+      - docs/development/ci-change-scope.md
+      - docs/development/ios-development-routine.md
 
 permissions:
   contents: read
